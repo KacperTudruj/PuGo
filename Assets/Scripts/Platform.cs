@@ -16,4 +16,11 @@ public class Platform : MonoBehaviour {
 	void Update () {
         rb2d.velocity = new Vector2(-PlayerStats.SpeedOfPlatform, 0);
     }
+    private void OnTriggerEnter2D(Collider2D collision){
+        if (collision.gameObject.tag == GameTags.tagEnd){
+
+            Destroy(gameObject);
+            Debug.Log("DUPA");
+        }
+    }
 }

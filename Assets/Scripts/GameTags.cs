@@ -13,6 +13,9 @@ public class GameTags : MonoBehaviour {
     public static string tagPlatform;
     public string tagOfPlatform = "Platform";
 
+    public static string tagEnd;
+    public string tagOfEnd = "END";
+
     // Update is called once per frame
     void Start()
     {
@@ -20,5 +23,6 @@ public class GameTags : MonoBehaviour {
         tagPlayer = tagOfPlayer;
         tagFlore = tagOfFlore;
         tagPlatform = tagOfPlatform;
+        tagEnd = tagOfEnd;
     }
 }

@@ -13,10 +13,22 @@ public class PlayerStats : MonoBehaviour {
     public static float SpeedOfPlatform;
     public int speedOfPlatform = 1;
 
+    public static float maxY;
+    public float maxy = 0.2f;
+
+    public static float minY;
+    public float miny = 0.2f;
+
+    public static float timeOfPlatformSpawn;
+    public float platormTimerSpawner = 2;
+
     void Start () {
         foodCounter = startFoodCounter;
         JumpPower = jumpPower;
         SpeedOfPlatform = speedOfPlatform;
+        maxY = maxy;
+        minY = miny;
+        timeOfPlatformSpawn = platormTimerSpawner;
     }
 	
 }
