@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     private bool grounded = true;
     private Rigidbody2D rb2d;
-    public int random = 0;
+    private bool doublejump = true;
 
     void Start(){
         rb2d = GetComponent<Rigidbody2D>();
@@ -26,11 +26,14 @@ public class Player : MonoBehaviour
 
         if (grounded){
             //If the player hit the "ground" can jump
-            if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0)){
+            if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
+            {
                 rb2d.velocity = new Vector2(0, PlayerStats.JumpPower);
                 grounded = false;
+                doublejump = true;
             }
         }
+
         else{
             //If the player has a "Food Counter" can jump agine
             nextJump();
@@ -38,12 +41,17 @@ public class Player : MonoBehaviour
     }
 
     private void nextJump(){
+        if (doublejump){
+            if (PlayerStats.foodCounter > 0)
+            {
 
-        if (PlayerStats.foodCounter > 0){
-            if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0)){
-                rb2d.velocity = new Vector2(0, PlayerStats.JumpPower);
-                PlayerStats.foodCounter--;
-                Debug.Log(PlayerStats.foodCounter);   
+                if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
+                {
+                    rb2d.velocity = new Vector2(0, PlayerStats.JumpPower);
+                    PlayerStats.foodCounter--;
+                    doublejump = false;
+                    Debug.Log(PlayerStats.foodCounter);
+                }
             }
         }
     }
