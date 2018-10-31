@@ -6,7 +6,6 @@ public class Platform : MonoBehaviour {
 
     private Rigidbody2D rb2d;
 
-
     // Use this for initialization
     void Start () {
         rb2d = GetComponent<Rigidbody2D>();
@@ -20,7 +19,6 @@ public class Platform : MonoBehaviour {
         if (collision.gameObject.tag == GameTags.tagEnd){
 
             Destroy(gameObject);
-            Debug.Log("DUPA");
         }
     }
 }

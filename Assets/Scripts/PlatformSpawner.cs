@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlatformSpawner : MonoBehaviour {
 
     public GameObject platformPrefab;
+    public GameObject foodPrefab;
+    public int chanceToSpawnFood = 30;
+
     Vector3 spawnPosition = new Vector3();
     Vector3 playerPositon = new Vector3();
 
@@ -14,16 +17,24 @@ public class PlatformSpawner : MonoBehaviour {
     }
 
     void Spawn(){
+        // take position from player and spawn platform
         playerPositon = GameObject.FindGameObjectWithTag("Player").transform.position;
-        if(playerPositon.y < -3){
-            playerPositon.y = -2;
+        if(playerPositon.y < -2.5f){
+            playerPositon.y = -1f;
         }
         if(playerPositon.y > 4){
             playerPositon.y = 2;
         }
-        //Debug.Log(playerPositon.y);
+
         spawnPosition.y = Random.Range( (PlayerStats.minY + playerPositon.y), (PlayerStats.maxY + playerPositon.y));
-        spawnPosition.x = 5;
+        spawnPosition.x = 10;
         Instantiate(platformPrefab, spawnPosition, Quaternion.identity);
+        
+        if (PlayerStats.chanceToSpawnFoot >= Random.Range(0, 99))
+        {
+
+            spawnPosition.y += 1.3f;
+            Instantiate(foodPrefab, spawnPosition, Quaternion.identity);
+        }
     }
 }
