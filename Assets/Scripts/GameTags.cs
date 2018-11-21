@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameTags : MonoBehaviour {
+public class GameTags : MonoBehaviour 
+{
 
     public static string tagPlayer;
     public string tagOfPlayer = "Player";
@@ -19,7 +20,6 @@ public class GameTags : MonoBehaviour {
     // Update is called once per frame
     void Start()
     {
-
         tagPlayer = tagOfPlayer;
         tagFlore = tagOfFlore;
         tagPlatform = tagOfPlatform;

@@ -7,7 +7,8 @@ public class FoodCounter : MonoBehaviour {
 
     public Text foodText;
 	
-	void Update () {
+	void Update () 
+    {
         foodText.text = PlayerStats.foodCounter.ToString();		
 	}
 }
