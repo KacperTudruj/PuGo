@@ -32,10 +32,11 @@ public class PlatformSpawner : MonoBehaviour
         spawnPosition.x = 10;
         Instantiate(platformPrefab, spawnPosition, Quaternion.identity);
         
+        // spawning food at platform
         if (PlayerStats.chanceOfSpawningFood >= Random.Range(0, 99))
         {
 
-            spawnPosition.y += 1.3f;
+            spawnPosition.y += 1.8f;
             Instantiate(foodPrefab, spawnPosition, Quaternion.identity);
         }
     }

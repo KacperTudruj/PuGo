@@ -36,15 +36,8 @@ public class Player : MonoBehaviour
         }
         else
         {
-            //If the player has a "Food Counter" can jump agine
+            //If the player has a "Food Counter", can jump agine
             nextJump();
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == GameTags.tagPlatform)
-        {
-            rb2d.velocity = new Vector2(0, -PlayerStats.jumpPower);
         }
     }
     private void nextJump()

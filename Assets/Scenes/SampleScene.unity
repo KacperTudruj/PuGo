@@ -218,7 +218,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 408773915}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.17, y: 0, z: 0}
+  m_LocalPosition: {x: 11.79, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -327,7 +327,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4854387665036926, guid: 592ff801a7a5bf547bdb4f6cb2e45f80, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.8693296
+      value: 0.611
       objectReference: {fileID: 0}
     - target: {fileID: 4854387665036926, guid: 592ff801a7a5bf547bdb4f6cb2e45f80, type: 2}
       propertyPath: m_LocalPosition.y
@@ -466,8 +466,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dcb9795d5fccf14b90c1658c89a086c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpPower: 14
-  speedOfPlatform: 10
+  JumpPower: 22
+  speedOfPlatform: 8
   maxy: 1
   miny: -2
   platormTimerSpawner: 0.25
