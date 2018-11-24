@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == GameTags.tagFlore || collision.gameObject.tag == GameTags.tagPlatform)
             grounded = true;
     }
+
     private void jump()
     {
         if (grounded)
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour
             nextJump();
         }
     }
+    
     private void nextJump()
     {
         if (doublejump)
