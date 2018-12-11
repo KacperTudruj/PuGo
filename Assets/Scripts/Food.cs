@@ -12,7 +12,7 @@ public class Food : MonoBehaviour
     }
     void Update()
     {
-        rb2d.velocity = new Vector2(-PlayerStats.SpeedOfPlatform, 0);
+        rb2d.velocity = new Vector2(-PlayerStats.speedOfPlatform, 0);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

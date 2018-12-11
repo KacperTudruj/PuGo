@@ -1,60 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    private bool grounded = true;
-    private Rigidbody2D rb2d;
-    private bool doublejump = true;
+    private Vector2 targetPos;
+    public float distanse;
+    public float speed;
 
-    void Start()
+    private void Update()
     {
-        rb2d = GetComponent<Rigidbody2D>();
-    }
-    void Update()
-    {
-        jump();
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        //if player hit ground, you can jump agine (can't jump in air)
-        if (collision.gameObject.tag == GameTags.tagFlore || collision.gameObject.tag == GameTags.tagPlatform)
-            grounded = true;
-    }
+        if(PlayerStats.foodCounter <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
 
-    private void jump()
-    {
-        if (grounded)
+        transform.position = Vector2.MoveTowards(transform.position, targetPos, PlayerStats.speedOfPlayer * Time.deltaTime);
+        if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y < PlayerStats.maxY)
         {
-            //If the player hit the "ground" can jump
-            if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
-            {
-                rb2d.velocity = new Vector2(0, PlayerStats.jumpPower);
-                grounded = false;
-                doublejump = true;
-            }
+            targetPos = new Vector2(transform.position.x, transform.position.y + PlayerStats.distanceToJump);
         }
-        else
+        else if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y > PlayerStats.minY)
         {
-            //If the player has a "Food Counter", can jump agine
-            nextJump();
-        }
-    }
-    
-    private void nextJump()
-    {
-        if (doublejump)
-        {
-            if (PlayerStats.foodCounter > 0)
-            {
-                if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
-                {
-                    rb2d.velocity = new Vector2(0, PlayerStats.jumpPower);
-                    PlayerStats.foodCounter--;
-                    doublejump = false;
-                }
-            }
+            targetPos = new Vector2(transform.position.x, transform.position.y - PlayerStats.distanceToJump);
         }
     }
 }

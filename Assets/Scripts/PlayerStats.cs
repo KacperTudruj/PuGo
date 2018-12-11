@@ -8,34 +8,36 @@ public class PlayerStats : MonoBehaviour
     public static int foodCounter;
     int startFoodCounter = 5;
 
-    public static float jumpPower;
-    public int JumpPower = 7;
-    [Header("Platform and food stats: ")]
+    public static int speedOfPlayer;
+    public int SpeedOfPlayer;
 
-    public static float SpeedOfPlatform;
-    public int speedOfPlatform = 1;
+    public static int distanceToJump;
+    public int DistanceToJump;
 
-    [Header("Spawning platofrm terms of player positions: ")]
     public static float maxY;
     public float maxy = 0.2f;
 
     public static float minY;
     public float miny = 0.2f;
 
-    public static float timeOfPlatformSpawn;
-    public float platormTimerSpawner = 2;
+    [Header("Platform stats: ")]
+    public static int speedOfPlatform;
+    public int SpeedOfPlatform;
+
 
     public static int chanceOfSpawningFood;
-    public int chanceToSpawnFood = 30;
+    public int ChanceOfSpawningFood;
 
     void Start () {
         foodCounter = startFoodCounter;
-        jumpPower = JumpPower;
-        SpeedOfPlatform = speedOfPlatform;
+        speedOfPlayer = SpeedOfPlayer;
+        distanceToJump = DistanceToJump;
         maxY = maxy;
         minY = miny;
-        timeOfPlatformSpawn = platormTimerSpawner;
-        chanceOfSpawningFood = chanceToSpawnFood;
+
+
+        chanceOfSpawningFood = ChanceOfSpawningFood;
+        speedOfPlatform = SpeedOfPlatform;
     }
 	
 }
